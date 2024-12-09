@@ -34,7 +34,7 @@ from utils.oauth2 import (
 
 from models.user import User, Role
 from api.schemas import TokenCreate, UserCreate, UserOut
-from api.routers.user import router as user_router
+from api.routers.user import create_role, router as user_router
 
 app = FastAPI()
 
