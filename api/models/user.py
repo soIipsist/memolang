@@ -3,7 +3,6 @@ from fastapi import requests
 from sqlalchemy import Integer, Table, Column, String, DateTime, ForeignKey
 from sqlalchemy.orm import relationship
 from constants import *
-from constants import BASE_URL
 import requests
 from api.database import Base
 

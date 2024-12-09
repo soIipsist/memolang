@@ -41,3 +41,7 @@ class TokenCreate(BaseModel):
 
 class TokenData(BaseModel):
     id: Optional[str] = None
+
+
+class Game(BaseModel):
+    id: Optional[int] = None

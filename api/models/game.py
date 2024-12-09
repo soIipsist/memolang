@@ -10,3 +10,4 @@ class Game(Base):
     user_id = Column(Integer, nullable=False)
     game_type = Column(GameType, nullable=False, default=GameType.WORDS)
     score = Column(Integer, nullable=True)
+    frequency = Column(Integer, nullable=True)
