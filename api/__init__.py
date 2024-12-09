@@ -2,7 +2,7 @@ from enum import Enum
 import os
 import sys
 
-database_name = "nulearns"
+database_name = "nulang"
 database_username = "p"
 database_password = "root"
 database_hostname = "localhost"
