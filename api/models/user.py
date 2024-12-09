@@ -5,6 +5,7 @@ from sqlalchemy.orm import relationship
 from constants import *
 import requests
 from api.database import Base
+from game import game_user_association
 
 user_roles = Table(
     "user_roles",
@@ -38,6 +39,10 @@ class User(Base):
 
     created_at = Column(DateTime, default=datetime.datetime.now(datetime.UTC))
     roles = relationship("Role", secondary=user_roles, back_populates="users")
+    games = relationship(
+        "Game", secondary=game_user_association, back_populates="users"
+    )
+    scores = relationship("GameScore", back_populates="user")
 
     def __str__(self) -> str:
         return (

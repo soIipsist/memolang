@@ -1,6 +1,7 @@
 from pydantic import BaseModel, ConfigDict, Field
 from datetime import datetime, date
 from typing import Optional, List
+from enums import GameType
 
 
 class RoleCreate(BaseModel):
@@ -12,9 +13,10 @@ class RoleOut(BaseModel):
     name: str = None
 
 
-class DefaultUser(BaseModel):
-    username: str
-    password: str
+class UserBase(BaseModel):
+    id: int
+    username: Optional[str] = None
+    password: Optional[str] = None
 
 
 class UserCreate(BaseModel):
@@ -43,5 +45,16 @@ class TokenData(BaseModel):
     id: Optional[str] = None
 
 
-class Game(BaseModel):
+class GameCreate(BaseModel):
     id: Optional[int] = None
+    game_type = GameType.WORDS
+    users: List[UserBase]
+    frequency: int = 100
+
+
+class GameOut(BaseModel):
+    id: Optional[int] = None
+    game_type: GameType
+    users: List[UserBase]
+    frequency: int
+    score: int
